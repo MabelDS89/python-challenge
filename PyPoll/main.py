@@ -13,22 +13,45 @@ with open(election_data_path) as csvfile:
     next(csvreader)
 
     #Assign variables
-    voters = 0
     voterID_list = []
-    candidates = 0
     candidates_list = []
 
         #Read through each row of data skipping the header
     for x in csvreader:
+
+        #Assign a new variable for how to determine voters
+        voters = (x[0])
+
+        #Store voter values inside voterID_list
+        voterID_list.append(voters)
+
+        #Assign a new variable for how to determine voters
+        candidates = (x[2])
         
-        #Loop through the Voter ID (column 1) and store values to the voterID list
-        voters = int(x[0])
-        voterID_list = voterID__list.append(voters)
+        #Store candidate values inside candidates_list
+        candidates_list.append(candidates)
 
-        #Find the length of the voterID list
-        length_voterID = len(voterID_list)
-
-        #Store values in empty candidates_list
+        #Count per candidate
         
 
-    print(f"Total Votes: {length_voterID}")
+    #Find the length of the voterID_list
+    length_voterID_list = len(voterID_list)
+
+    #Remove duplicates from the candidates_list
+    candidates_dict = list(dict.fromkeys(candidates_list))
+    
+    #Print statements
+    print("Election Results")
+    print("-------------------------------")
+    print(f"Total Votes: {length_voterID_list}")
+    print("-------------------------------")
+    print(candidates_dict[0])
+    print(candidates_dict[1])
+    print(candidates_dict[2])
+    print(candidates_dict[3])
+    print("-------------------------------")
+    print(f"Winner:")
+    print("-------------------------------")
+        
+
+
