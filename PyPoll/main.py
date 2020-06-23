@@ -41,29 +41,39 @@ with open(election_data_path) as csvfile:
 
         candidate_freq.append(name)
 
-    print(collections.Counter(candidate_freq).most_common)
-
     counter_candidate_freq = Counter(candidate_freq)
-    print(counter_candidate_freq)
 
     #Find the length of the voterID_list
     length_voterID_roster = len(voterID_roster)
 
     #Remove duplicates from the candidates_list
     candidates_dict = list(dict.fromkeys(candidates_roster))
+
+    #Percent of Khan votes
+    Khan_votes = int(counter_candidate_freq[candidates_dict[0]])
+    Khan_percent = Khan_votes/length_voterID_roster
+
+    #Percent of Correy votes
+    Correy_votes = int(counter_candidate_freq[candidates_dict[1]])
+    Correy_percent = Correy_votes/length_voterID_roster
+
+    #Percent of Li votes
+    Li_votes = int(counter_candidate_freq[candidates_dict[2]])
+    Li_percent = Li_votes/length_voterID_roster
+
+    #Percent of Li votes
+    OTooley_votes = int(counter_candidate_freq[candidates_dict[3]])
+    OTooley_percent = OTooley_votes/length_voterID_roster
     
     #Print statements
     print("Election Results")
     print("-------------------------------")
     print(f"Total Votes: {length_voterID_roster}")
     print("-------------------------------")
-    print(candidates_dict[0], {counter_candidate_freq[1]})
-    print(candidates_dict[1])
-    print(candidates_dict[2])
-    print(candidates_dict[3])
+    print(candidates_dict[0], "{:.2%}".format(Khan_percent), counter_candidate_freq[candidates_dict[0]])
+    print(candidates_dict[1], "{:.2%}".format(Correy_percent), counter_candidate_freq[candidates_dict[1]])
+    print(candidates_dict[2], "{:.2%}".format(Li_percent), counter_candidate_freq[candidates_dict[2]])
+    print(candidates_dict[3], "{:.2%}".format(OTooley_percent), counter_candidate_freq[candidates_dict[3]])
     print("-------------------------------")
-    print(f"Winner:")
+    print(f"Winner: {candidates_dict[0]}")
     print("-------------------------------")
-        
-
-
