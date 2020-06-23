@@ -28,7 +28,7 @@ with open(budget_data_path) as csvfile:
         #Find the net total amount of "Profit/Losses" over the entire period
         net_total = net_total + int(x[1])
 
-        #Find the difference between rows in colum 2 and store values to the difference list
+        #Find the difference between rows in column 2 and store values to the difference list
         change = int(x[1]) - previous
         previous = int(x[1])
         difference_list.append(change)
@@ -43,7 +43,7 @@ with open(budget_data_path) as csvfile:
     maxincrease = int(max(difference_list))
     minincrease = int(min(difference_list))
 
-    #Print values for total_months and net_total_profit_losses
+    #Print statements
     print("Financial Analysis")
     print("------------------")
     print(f"Total Months: {total_months}")
