@@ -2,7 +2,7 @@
 import os
 import csv
 
-#Set path for "budget_data" file
+#Set path for "budget_data" CSV file
 budget_data_path = os.path.join("Resources", "budget_data.csv")
 
 #Open the "budget_data" CSV file and specify delimiter and variable that holds content
